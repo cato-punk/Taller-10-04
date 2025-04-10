@@ -13,7 +13,7 @@ public class MatrizTaller {
 
     //actividad 2
     boolean validarDimensiones(int filas, int cols) {
-        return numFilas > 0 && numCols > 0;   //todavia no lo defino bien
+        return filas > 0 && cols > 0;   //todavia no lo defino bien
     }
 
     // actividad 3  accion 2 del usuario
