@@ -100,13 +100,9 @@ public class MatrizTaller {
         } while (opcion != 5);
     }
 
-    }
+
 
     public static void main(String[] args) {
-        menu();
-    }
-
-public static void main(String[] args) {
         menu();
         scanner.close();
     }
