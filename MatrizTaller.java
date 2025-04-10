@@ -79,11 +79,15 @@ public class MatrizTaller {
 
     static boolean esMatrizCero(int[][] matrizParaVerificar) {  //si es con el 50% de ceros
         if (matrizCreada) {
-            //obtener midiendo la matriz n*m
+            int totalElementos = obtenerTotalElementos(matrizParaVerificar);//obtener midiendo la matriz n*m
             // contar los ceros por fila o columna
             //y comparar la cantidad de todos los elementos con los ceros y que sea igual a 50% o mas
 
         }
+    }
+
+    static int obtenerTotalElementos(int[][] matriz) {
+        return matriz.length * matriz[0].length;
     }
 
     static int leerOpcionMenu() {
