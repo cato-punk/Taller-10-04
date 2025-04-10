@@ -30,16 +30,6 @@ public class MatrizTaller {
         return random.nextInt((maximo - minimo) + 1) + minimo; //con nexInt evitamos que salga double
     }
 
-    // 4. la fila deseada
-    static void mostrarFila(int[][] matrizParaMostrar, int indiceFila) {
-        if (matrizCreada && esIndiceFilaValido(matrizParaMostrar, indiceFila)) { //dos true
-            System.out.print("Fila " + indiceFila + ": ");
-
-
-    static boolean esIndiceFilaValido(int[][] matriz, int indice) {
-        return indice >= 0 && indice < matriz.length;
-    }
-
 
     static int[][] crearMatriz(int numFilas, int numCols) {
         return new int[numFilas][numCols];
@@ -64,6 +54,35 @@ public class MatrizTaller {
             }
         } else {
             System.out.println("Dimensiones inválidas. Las dimensiones deben ser mayores que cero.");
+        }
+    }
+
+    // 4. la fila deseada
+    static void mostrarFila(int[][] matrizParaMostrar, int indiceFila) {
+        if (matrizCreada && esIndiceFilaValido(matrizParaMostrar, indiceFila)) { //dos true
+            System.out.print("Fila " + indiceFila + ": ");
+            for (int valor : matrizParaMostrar[indiceFila]) {
+                System.out.print(valor + " ");
+            }
+            System.out.println();
+        } else if (!matrizCreada) {
+            System.out.println("Primero debe crear la matriz (opción 1:Definir y crear la matriz).");
+        } else {
+            System.out.println("Índice de fila inválido.");
+        }
+    }
+
+
+    static boolean esIndiceFilaValido(int[][] matriz, int indice) {
+        return indice >= 0 && indice < matriz.length;
+    }
+
+    static boolean esMatrizCero(int[][] matrizParaVerificar) {  //si es con el 50% de ceros
+        if (matrizCreada) {
+            //obtener midiendo la matriz n*m
+            // contar los ceros por fila o columna
+            //y comparar la cantidad de todos los elementos con los ceros y que sea igual a 50% o mas
+
         }
     }
 
@@ -100,7 +119,7 @@ public class MatrizTaller {
                     mostrarFila();
                     break;
                 case 4:
-                    EsMatrizCero();   //podria inicializar con true o false la matriz
+                    esMatrizCero();
                     break;
                 case 5:
                     System.out.println("Saliendo de la aplicación.");
