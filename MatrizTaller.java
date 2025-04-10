@@ -66,9 +66,9 @@ public class MatrizTaller {
             }
             System.out.println();
         } else if (!matrizCreada) {
-            System.out.println("Primero debe crear la matriz (opción 1:Definir y crear la matriz).");
+            System.out.println("Por favor debe realize primero (opción 1:Definir y crear la matriz).");
         } else {
-            System.out.println("Índice de fila inválido.");
+            System.out.println("Índice de fila inválido.");  //podriamos mostrarle al usuario que su fila tiene n filas antes de todo
         }
     }
 
@@ -80,14 +80,29 @@ public class MatrizTaller {
     static boolean esMatrizCero(int[][] matrizParaVerificar) {  //si es con el 50% de ceros
         if (matrizCreada) {
             int totalElementos = obtenerTotalElementos(matrizParaVerificar);//obtener midiendo la matriz n*m
-            // contar los ceros por fila o columna
-            //y comparar la cantidad de todos los elementos con los ceros y que sea igual a 50% o mas
-
+            int cantidadCeros = contarCeros(matrizParaVerificar);// contar los ceros por columan o fila
+            return (double) cantidadCeros / totalElementos > 0.5;// y comparar la cantidad de todos los elementos con los ceros y que sea igual a 50% o mas
+        } else {
+            System.out.println("Realice primero (opción 1).");
+            return false;
         }
     }
 
     static int obtenerTotalElementos(int[][] matriz) {
-        return matriz.length * matriz[0].length;
+        return matriz.length * matriz[0].length;   //lo necesito en esMatrizCero
+    }
+
+    // Cuenta la cantidad de ceros en la matriz por fila
+    static int contarCeros(int[][] matriz) {
+        int contador = 0;
+        for (int[] fila : matriz) {
+            for (int valor : fila) {
+                if (valor == 0) {  //vamos agregando por cada cero
+                    contador++;
+                }
+            }
+        }
+        return contador;
     }
 
     static int leerOpcionMenu() {
