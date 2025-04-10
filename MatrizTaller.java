@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+
 public class MatrizTaller {
 
     private static Scanner scanner = new Scanner(System.in);
@@ -7,16 +8,33 @@ public class MatrizTaller {
     private static int[][] matriz;
     private static int filas;
     private static int columnas;
+    private static boolean matrizCreada = false; // mejor inicializar
 
+
+    //actividad 2
     boolean validarDimensiones(int filas, int cols) {
         return numFilas > 0 && numCols > 0;   //todavia no lo defino bien
+    }
+
+    // actividad 3  accion 2 del usuario
+    static void LlenarMatriz(int[][] matrizParaLlenar) {
+        for (int i = 0; i < matrizParaLlenar.length; i++) {  //i,j  m,n
+            for (int j = 0; j < matrizParaLlenar[0].length; j++) {
+                matrizParaLlenar[i][j] = generarNumeroAleatorio(0, 9);
+            }
+        }
+    }
+
+    // Genera un número entero aleatorio dentro de un rango  0-9 especificado arriba
+    static int generarNumeroAleatorio(int minimo, int maximo) {
+        return random.nextInt((maximo - minimo) + 1) + minimo; //con nexInt evitamos que salga double
     }
 
     static int[][] crearMatriz(int numFilas, int numCols) {
         return new int[numFilas][numCols];
     }
 
-    static void ejecutarDefinirCrearMatriz() {
+    static void DefinirCrearMatriz() {
         System.out.print("Ingrese el número de filas (m): ");
         int m = leerOpcionMenu();
         System.out.print("Ingrese el número de columnas (n): ");
@@ -47,9 +65,6 @@ public class MatrizTaller {
         }
         return scanner.nextInt();
     }
-    public static void main(String[] args) {
-        menu();
-    }
 
 
     static void menu() {
@@ -68,7 +83,7 @@ public class MatrizTaller {
                     DefinirCrearMatriz();
                     break;
                 case 2:
-                   LlenarMatriz();
+                    LlenarMatriz();
                     break;
                 case 3:
                     MostrarFila();
@@ -88,6 +103,10 @@ public class MatrizTaller {
     }
 
     public static void main(String[] args) {
+        menu();
+    }
+
+public static void main(String[] args) {
         menu();
         scanner.close();
     }
