@@ -12,7 +12,7 @@ public class MatrizTaller {
 
 
     //actividad 2
-    boolean validarDimensiones(int filas, int cols) {
+    static boolean validarDimensiones(int filas, int cols) {
         return filas > 0 && cols > 0;   //todavia no lo defino bien
     }
 
@@ -35,7 +35,7 @@ public class MatrizTaller {
         return new int[numFilas][numCols];
     }
 
-    void DefinirCrearMatriz() {
+    static void DefinirCrearMatriz() {
         System.out.print("Ingrese el número de filas (m): ");
         int m = leerOpcionMenu();
         System.out.print("Ingrese el número de columnas (n): ");
@@ -50,7 +50,7 @@ public class MatrizTaller {
             System.out.print("¿Desea llenar la matriz con datos aleatorios ahora? (1: Sí, 0: No): ");
             int opcionLlenar = leerOpcionMenu();
             if (opcionLlenar == 1) {
-                LlenarMatriz(); //todavia no la hago
+                LlenarMatriz();
             }
         } else {
             System.out.println("Dimensiones inválidas. Las dimensiones deben ser mayores que cero.");
