@@ -35,7 +35,7 @@ public class MatrizTaller {
         return new int[numFilas][numCols];
     }
 
-    static void DefinirCrearMatriz() {
+    void DefinirCrearMatriz() {
         System.out.print("Ingrese el número de filas (m): ");
         int m = leerOpcionMenu();
         System.out.print("Ingrese el número de columnas (n): ");
